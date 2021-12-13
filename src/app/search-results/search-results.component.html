@@ -1,0 +1,38 @@
+<div *ngIf="searchQuery">
+  <h1>Results for: "{{ searchQuery }}"</h1>
+  <div>
+    The following is a list of artists matching the query.
+  </div>
+  <div>
+    Click the <strong>artist image</strong> for more information.
+  </div>
+  <div class="content mt-4">
+    <div
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxFlex
+      [style.margin]="'20px'">
+      <div *ngFor="let artist of searchResults" fxFlex [style.margin]="'20px'">
+        <mat-card [style.min-width]="'200px'">
+          <mat-card-header>
+            <mat-card-title>{{ artist.name }}</mat-card-title>
+            <mat-card-subtitle>Artist</mat-card-subtitle>
+          </mat-card-header>
+          <div *ngIf="artist.images">
+            <img
+              routerLink="/artist/{{ artist.id }}"
+              mat-card-image
+              class="album-cover"
+              src="{{ artist.images[0].url }}"
+              alt="artist art"
+            />
+          </div>
+          <mat-card-content>
+            <strong>Followers: </strong>{{ artist.followers.total }}<br />
+            <strong>Popularity: </strong>{{ artist.popularity }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
