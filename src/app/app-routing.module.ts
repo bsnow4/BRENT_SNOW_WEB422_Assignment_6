@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { GuardAuthService } from './guard-auth.service';
 
 const routes: Routes = [
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'newReleases', component: NewReleasesComponent, canActivate: [GuardAuthService] },
   { path: 'artist/:id', component: ArtistDiscographyComponent, canActivate: [GuardAuthService] },
   { path: 'album/:id', component: AlbumComponent, canActivate: [GuardAuthService] },
@@ -19,8 +21,6 @@ const routes: Routes = [
   { path: 'search', component: SearchResultsComponent, canActivate: [GuardAuthService] },
   { path: 'favourites', component: FavouritesComponent, canActivate: [GuardAuthService] },
   { path: '', redirectTo: 'newReleases', pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

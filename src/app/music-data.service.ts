@@ -74,7 +74,7 @@ export class MusicDataService {
 
   addToFavourites(id: string): Observable<[String]> {
     return this.http
-      .put<[String]>(`${environment.userAPIBase}/favourites/${id}`, id)
+      .put<[String]>(`${environment.userAPIBase}/user/favourites/${id}`, id)
       .pipe(
         mergeMap((favourites) => {
           if (favourites.length > 0) {
@@ -97,7 +97,7 @@ export class MusicDataService {
 
   removeFromFavourites(id:string): Observable<any> {
     return this.http
-      .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
+      .delete<[String]>(`${environment.userAPIBase}/user/favourites/${id}`)
       .pipe(
         mergeMap((favourites) => {
           if (favourites.length > 0) {
@@ -120,7 +120,7 @@ export class MusicDataService {
 
   getFavourites(): Observable<any> {
     return this.http
-      .get<[String]>(`${environment.userAPIBase}/favourites/`)
+      .get<[String]>(`${environment.userAPIBase}/user/favourites/`)
       .pipe(
         mergeMap((favourites) => {
           if (favourites.length > 0) {

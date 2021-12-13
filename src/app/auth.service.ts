@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    return this.http.post<any>(`${environment.userAPIBase}/login`, user);
+    return this.http.post<any>(`${environment.userAPIBase}/user/login`, user);
   }
 
   setToken(token: string): boolean {
@@ -44,6 +44,6 @@ export class AuthService {
   }
 
   register(registerUser: RegisterUser): Observable<any> {
-    return this.http.post<any>(`${environment.userAPIBase}/register`, registerUser);
+    return this.http.post<any>(`${environment.userAPIBase}/user/register`, registerUser);
   }
 }
